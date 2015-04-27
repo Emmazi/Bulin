@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.example.game.SnowView
+            android:id="@+id/snow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="170dp"
+            tileSize="24" />
+
+        <Button
+            android:id="@+id/button_sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_rain"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="43dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/sun_a" />
+
+        <Button
+            android:id="@+id/button_rain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="28dp"
+            android:background="@drawable/raindrop_a" />
+
+        <Button
+            android:id="@+id/button_cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/button_rain"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/cut_a" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="56dp"
+            android:background="@drawable/green" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/cult_tree_btn"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/tree_g" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/cult_scan_btn"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/scan_g" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/cult_my_btn"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/time_g" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/view_plant_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/view_plant_huapen"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/plant0" />
+        <Button
+            android:id="@+id/view_plant_huapen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/huapen" />
+    </RelativeLayout>
+
+</LinearLayout>

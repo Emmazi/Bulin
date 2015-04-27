@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:layout_marginBottom="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/zisu_bg" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/zisu_bg" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/zisu_bg" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/pic_tree_btn"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/tree_btn" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/pic_scan_btn"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/scan_btn" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/pic_my_btn"
+            android:layout_width="32dp"
+            android:layout_height="match_parent" 
+            android:layout_marginRight="20dp"
+            android:background="@drawable/scan_btn_background"/>
+    </LinearLayout>
+    
+</LinearLayout>
