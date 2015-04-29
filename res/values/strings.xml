@@ -7,5 +7,6 @@
     <string name="title_activity_view">ViewActivity</string>
     <string name="title_activity_scroll_dye">ScrollDyeActivity</string>
     <string name="title_activity_centre">CentreActivity</string>
+    <string name="title_activity_collection">CollectionActivity</string>
 
 </resources>

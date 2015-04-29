@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.bulin.CentreActivity;
+import com.example.bulin.CollectionActivity;
 import com.example.bulin.R;
 import com.example.bulin.ViewActivity;
 import com.example.bulin.R.id;
@@ -125,6 +127,9 @@ public class Dye extends Fragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.dye_my_btn:
+			Intent inm = new Intent(getActivity(), CentreActivity.class);
+			startActivity(inm);
+			getActivity().finish();
 			break;
 		case R.id.dye_scan_btn:
 			Intent intent = new Intent();
@@ -159,6 +164,8 @@ public class Dye extends Fragment implements OnClickListener{
 
 			break;
 		case R.id.dye_tree_btn:
+			Intent inc = new Intent(getActivity(), CollectionActivity.class);
+			startActivity(inc);
 			break;
 
 		}

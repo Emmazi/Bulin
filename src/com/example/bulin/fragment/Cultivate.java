@@ -2,6 +2,8 @@ package com.example.bulin.fragment;
 
 import java.util.List;
 
+import com.example.bulin.CentreActivity;
+import com.example.bulin.CollectionActivity;
 import com.example.bulin.R;
 import com.example.game.SnowView;
 
@@ -28,9 +30,14 @@ public class Cultivate extends Fragment implements OnClickListener {
 	
 	// Button to controll whether to rain
 	private Button rain_control;
+	private Button sun;
+	private Button cut;
+	
 	public static Button view_plant_btn;
 	// judge whether to begin rain
 	private boolean issnow = true;
+	private boolean iscut = true;
+	private boolean isshine = true;
 
 	private Button scan;
 	private Button my;
@@ -58,13 +65,18 @@ public class Cultivate extends Fragment implements OnClickListener {
 		
 		rain_control = (Button) mMainView.findViewById(R.id.button_rain);
 		rain_control.setOnClickListener(this);
+		sun = (Button) mMainView.findViewById(R.id.button_sun);
+		sun.setOnClickListener(this);
+		cut = (Button) mMainView.findViewById(R.id.button_cut);
+		cut.setOnClickListener(this);
+		
 		view_plant_btn = (Button) mMainView.findViewById(R.id.view_plant_btn);
 
-		scan = (Button) mMainView.findViewById(R.id.cen_scan_btn);
+		scan = (Button) mMainView.findViewById(R.id.cult_scan_btn);
 		scan.setOnClickListener(this);
-		my = (Button) mMainView.findViewById(R.id.cen_my_btn);
+		my = (Button) mMainView.findViewById(R.id.cult_my_btn);
 		my.setOnClickListener(this);
-		tree = (Button) mMainView.findViewById(R.id.cen_tree_btn);
+		tree = (Button) mMainView.findViewById(R.id.cult_tree_btn);
 		tree.setOnClickListener(this);
 		
 	}
@@ -74,6 +86,7 @@ public class Cultivate extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.button_rain:
+			SnowView.count = 0;
 			if (issnow) {
 				issnow = false;
 				rain.israin = true;
@@ -83,15 +96,36 @@ public class Cultivate extends Fragment implements OnClickListener {
 				issnow = true;
 				rain.israin = false;
 				rain_control.setBackgroundResource(R.drawable.raindrop_a);
-				view_plant_btn.setBackgroundResource(R.drawable.plant0);
-				SnowView.count = 0;
+				view_plant_btn.setBackgroundResource(R.drawable.plant02);
+				iscut = true;
+				cut.setBackgroundResource(R.drawable.cut_a);
 			}
 			break;
 		case R.id.button_cut:
+			if(iscut){
+				cut.setBackgroundResource(R.drawable.cut_b);
+				iscut = false;
+				view_plant_btn.setBackgroundResource(R.drawable.plant01);
+			}
 			break;
 		case R.id.button_sun:
+			if(isshine){
+				rain_control.setBackgroundResource(R.drawable.drop_shine);
+				cut.setBackgroundResource(R.drawable.cut_shine);
+				sun.setBackgroundResource(R.drawable.sun_shine);
+				isshine = false;
+				
+			}else{
+				sun.setBackgroundResource(R.drawable.sun_a);
+				cut.setBackgroundResource(R.drawable.cut_a);
+				rain_control.setBackgroundResource(R.drawable.raindrop_a);
+				isshine = true;
+			}
 			break;
 		case R.id.cult_my_btn:
+			Intent inm = new Intent(getActivity(), CentreActivity.class);
+			startActivity(inm);
+			getActivity().finish();
 			break;
 		case R.id.cult_scan_btn:
 			Intent intent = new Intent();
@@ -108,7 +142,6 @@ public class Cultivate extends Fragment implements OnClickListener {
 					isSightPlusExists = true;
 				} else {
 					//SightPlus is not exists
-
 					System.out.println("----SightPlus is not exists----");
 				}
 			}
@@ -123,9 +156,11 @@ public class Cultivate extends Fragment implements OnClickListener {
 				Toast.makeText(getActivity().getApplicationContext(), "请自行下载 视+ 软件进行扫描",
 					     Toast.LENGTH_SHORT).show();	
 			}
-
+			
 			break;
 		case R.id.cult_tree_btn:
+			Intent inc = new Intent(getActivity(), CollectionActivity.class);
+			startActivity(inc);
 			break;
 
 		}

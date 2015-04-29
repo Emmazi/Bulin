@@ -2,6 +2,8 @@ package com.example.bulin.fragment;
 
 import java.util.List;
 
+import com.example.bulin.CentreActivity;
+import com.example.bulin.CollectionActivity;
 import com.example.bulin.R;
 import com.example.bulin.R.id;
 import com.example.bulin.R.layout;
@@ -49,6 +51,9 @@ public class Picture extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.pic_my_btn:
+			Intent inm = new Intent(getActivity(), CentreActivity.class);
+			startActivity(inm);
+			getActivity().finish();
 			break;
 		case R.id.pic_scan_btn:
 			Intent intent = new Intent();
@@ -82,6 +87,8 @@ public class Picture extends Fragment implements OnClickListener {
 
 			break;
 		case R.id.pic_tree_btn:
+			Intent inc = new Intent(getActivity(), CollectionActivity.class);
+			startActivity(inc);
 			break;
 
 		}

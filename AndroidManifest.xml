@@ -34,6 +34,10 @@
             android:name=".CentreActivity"
             android:label="@string/title_activity_centre" >
         </activity>
+        <activity
+            android:name=".CollectionActivity"
+            android:label="@string/title_activity_collection" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.example.bulin;
 
-
 import com.example.bulin.util.Globals;
 import com.example.bulin.util.ImageAdapter1;
 
@@ -18,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class ScrollDyeActivity extends Activity implements OnClickListener{
+public class ScrollDyeActivity extends Activity implements OnClickListener {
 
 	private Gallery mGallery;// Set the picture
 	private int index = 0;// record the picture's position
@@ -26,6 +25,8 @@ public class ScrollDyeActivity extends Activity implements OnClickListener{
 	private static final int IMAGE_COUNT = 6;// Pot's number
 	private Button return_view_btn;
 	private Button collect_view_btn;
+	private boolean isSelect = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,15 +43,17 @@ public class ScrollDyeActivity extends Activity implements OnClickListener{
 		mGallery.setOnItemSelectedListener(onItemSelectedListener);
 		int position = getIntent().getIntExtra("position", 0);
 		mGallery.setSelection(position);
-//		mGallery.setSelection(adapter.mImageIds.length * 100000000);
+		// mGallery.setSelection(adapter.mImageIds.length * 100000000);
 		mGallery.setOnItemClickListener(onItemClickListener);
 		mGallery.setVerticalScrollBarEnabled(false);
-		mGallery.setBackgroundColor(getResources().getColor(android.R.color.black));
+		mGallery.setBackgroundColor(getResources().getColor(
+				android.R.color.black));
 		return_view_btn = (Button) findViewById(R.id.return_view_btn);
 		return_view_btn.setOnClickListener(this);
 		collect_view_btn = (Button) findViewById(R.id.collect_view_btn);
 		collect_view_btn.setOnClickListener(this);
 	}
+
 	private void findViews() {
 		mGallery = (Gallery) findViewById(R.id.gallery);
 		mImageViewIds = new ImageView[] { (ImageView) findViewById(R.id.dot_1),
@@ -143,20 +146,29 @@ public class ScrollDyeActivity extends Activity implements OnClickListener{
 		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
 				long arg3) {
 			collect_view_btn.setBackgroundResource(R.drawable.collect_view_b);
-//			finish();
+			// finish();
 		}
 	};
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		switch(v.getId()){
+		switch (v.getId()) {
 		case R.id.collect_view_btn:
-			collect_view_btn.setBackgroundResource(R.drawable.collect_view_b);
+			if (!isSelect) {
+				collect_view_btn
+						.setBackgroundResource(R.drawable.collect_view_b);
+				isSelect = true;
+			} else {
+				collect_view_btn
+						.setBackgroundResource(R.drawable.collect_view_a);
+				isSelect =false;
+			}
 			break;
 		case R.id.return_view_btn:
 			finish();
 			break;
-		
+
 		}
 	}
 

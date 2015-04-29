@@ -18,7 +18,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class SnowView extends View {
-	int MAX_SNOW_COUNT = 30;
+	int MAX_SNOW_COUNT = 16;
 	// 雪花图片
 	Bitmap bitmap_snows = null;
 	// 画笔
@@ -97,14 +97,29 @@ public class SnowView extends View {
 					count++;
 					snows[i].coordinate.y = 0;
 					snows[i].coordinate.x = random.nextInt(view_width);
-					System.out.println(count+"----------");
-					if(count % 5 == 2){
-						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant02);
-					}
-					else if(count % 5  == 1)
+					switch(count/10)
 					{
-						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant01);
-					}
+					case 1:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant1);
+						break;
+					case 2:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant2);
+						break;
+					case 3:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant3);
+						break;
+					case 4:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant4);
+						break;
+					case 5:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant5);
+						break;
+					case 6:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant6);
+						break;
+					case 7:
+						Cultivate.view_plant_btn.setBackgroundResource(R.drawable.plant02);
+}
 				}
 				// 雪花下落的速度
 				snows[i].coordinate.y += snows[i].speed + 15;

@@ -2,6 +2,8 @@ package com.example.bulin.fragment;
 
 import java.util.List;
 
+import com.example.bulin.CentreActivity;
+import com.example.bulin.CollectionActivity;
 import com.example.bulin.R;
 import com.example.bulin.ViewActivity;
 import com.example.bulin.R.id;
@@ -19,21 +21,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Research extends Fragment implements OnClickListener{
+public class Research extends Fragment implements OnClickListener {
 	private View mMainView;
 
 	private Button scan;
 	private Button my;
 	private Button tree;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		Log.v("huahua", "fragment2-->onCreate()");
-		
+
 		LayoutInflater inflater = getActivity().getLayoutInflater();
-		mMainView = inflater.inflate(R.layout.fragment_res, (ViewGroup)getActivity().findViewById(R.id.viewpager), false);
+		mMainView = inflater.inflate(R.layout.fragment_res,
+				(ViewGroup) getActivity().findViewById(R.id.viewpager), false);
 
 		scan = (Button) mMainView.findViewById(R.id.res_scan_btn);
 		scan.setOnClickListener(this);
@@ -41,14 +44,17 @@ public class Research extends Fragment implements OnClickListener{
 		my.setOnClickListener(this);
 		tree = (Button) mMainView.findViewById(R.id.res_tree_btn);
 		tree.setOnClickListener(this);
-	
+
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.res_my_btn:
+			Intent inm = new Intent(getActivity(), CentreActivity.class);
+			startActivity(inm);
+			getActivity().finish();
 			break;
 		case R.id.res_scan_btn:
 			Intent intent = new Intent();
@@ -64,41 +70,42 @@ public class Research extends Fragment implements OnClickListener{
 						.equals("cn.easyar.sightplus")) {
 					isSightPlusExists = true;
 				} else {
-					//SightPlus is not exists
+					// SightPlus is not exists
 
 					System.out.println("----SightPlus is not exists----");
 				}
 			}
 			// 从当前应用跳转到另一个应用中
 			if (isSightPlusExists) {
-				Intent in = getActivity().getPackageManager().getLaunchIntentForPackage(
-						"cn.easyar.sightplus");
+				Intent in = getActivity().getPackageManager()
+						.getLaunchIntentForPackage("cn.easyar.sightplus");
 
 				startActivity(in);
-			}else
-			{
-				Toast.makeText(getActivity().getApplicationContext(), "请自行下载 视+ 软件进行扫描",
-					     Toast.LENGTH_SHORT).show();	
+			} else {
+				Toast.makeText(getActivity().getApplicationContext(),
+						"请自行下载 视+ 软件进行扫描", Toast.LENGTH_SHORT).show();
 			}
 
 			break;
 		case R.id.res_tree_btn:
+			Intent inc = new Intent(getActivity(), CollectionActivity.class);
+			startActivity(inc);
 			break;
 
 		}
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		Log.v("huahua", "fragment2-->onCreateView()");
 
-		ViewGroup p = (ViewGroup) mMainView.getParent(); 
-        if (p != null) { 
-            p.removeAllViewsInLayout(); 
-            Log.v("huahua", "fragment2-->移除已存在的View");
-        } 
-		
+		ViewGroup p = (ViewGroup) mMainView.getParent();
+		if (p != null) {
+			p.removeAllViewsInLayout();
+			Log.v("huahua", "fragment2-->移除已存在的View");
+		}
+
 		return mMainView;
 	}
 
@@ -107,7 +114,7 @@ public class Research extends Fragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		Log.v("huahua", "fragment2-->onDestroy()");
-		}
+	}
 
 	@Override
 	public void onPause() {
@@ -133,10 +140,9 @@ public class Research extends Fragment implements OnClickListener{
 	@Override
 	public void onStop() {
 		// TODO Auto-generated method stub
-	
+
 		super.onStop();
 		Log.v("huahua", "fragment2-->onStop()");
 	}
 
-	
 }

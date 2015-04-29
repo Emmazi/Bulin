@@ -10,14 +10,6 @@
         android:layout_height="0dp"
         android:layout_weight="1" >
 
-        <com.example.game.SnowView
-            android:id="@+id/snow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="170dp"
-            tileSize="24" />
-
         <Button
             android:id="@+id/button_sun"
             android:layout_width="wrap_content"
@@ -32,9 +24,10 @@
             android:id="@+id/button_rain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/button_cut"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="28dp"
+            android:layout_marginBottom="43dp"
+            android:layout_marginRight="26dp"
             android:background="@drawable/raindrop_a" />
 
         <Button
@@ -42,10 +35,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/button_rain"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="43dp"
             android:background="@drawable/cut_a" />
+
+        <com.example.game.SnowView
+            android:id="@+id/snow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="170dp"
+            tileSize="24" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -92,6 +92,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/time_g" />
         </LinearLayout>
+
         <Button
             android:id="@+id/view_plant_btn"
             android:layout_width="wrap_content"
@@ -99,6 +100,7 @@
             android:layout_above="@+id/view_plant_huapen"
             android:layout_centerHorizontal="true"
             android:background="@drawable/plant0" />
+
         <Button
             android:id="@+id/view_plant_huapen"
             android:layout_width="wrap_content"

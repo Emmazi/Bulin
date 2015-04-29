@@ -20,20 +20,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:layout_margin="40dp"
-                android:background="@drawable/zisu_bg"
-                android:text="紫苏" />
+                android:background="@drawable/collection_linear"
+                android:text="紫苏"
+                android:textSize="32sp"
+                android:gravity="center" 
+                android:textColor="#000000"/>
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:layout_margin="40dp"
-                android:background="@drawable/zisu_bg" />
+                android:background="@drawable/collection_title"
+                android:text="待添加"
+                android:textSize="32sp"
+                android:gravity="center" 
+                android:textColor="#000000"/>
 
-            <ImageView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:layout_margin="40dp"
-                android:background="@drawable/zisu_bg" />
+                android:background="@drawable/collection_title"
+                android:text="待添加"
+                android:textSize="32sp"
+                android:gravity="center" 
+                android:textColor="#000000"/>
         </LinearLayout>
     </ScrollView>
 
